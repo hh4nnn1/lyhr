@@ -1,8 +1,7 @@
-import maincontrol  from './mainControl'
+import mControl from './mControl.js'
 
 
-let ctx   = canvas.getContext('2d')
-let mControl = new mainControl()
+var m_Control = new mControl()
 
 /**
  * 游戏主函数
@@ -11,6 +10,9 @@ export default class Main {
   constructor() {
     // 维护当前requestAnimationFrame的id
     this.animId = 0
+    
+    this.bindloop = this.loop.bind(this)
+
     this.start()
   }
 
@@ -21,9 +23,11 @@ export default class Main {
 
   loop(){
     
-    mControl.update()
-    mControl.redraw()
-    this.animId = window.requestAnimationFrame(this.loop,canvas)
+    m_Control.update()
+    m_Control.redraw()
+
+    this.animId = window.requestAnimationFrame(this.bindloop,canvas)
+
   }
 
 }
