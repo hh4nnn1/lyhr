@@ -8,7 +8,7 @@ export default class background{
 
   drawToImage(ctx)
   {
-    ctx.fillStyle = 'red'
+    ctx.fillStyle = '#FFC78E'
     ctx.fillRect(0, 0, canvas.width, canvas.height)
   }
 }

@@ -24,9 +24,9 @@ export default class Main {
   loop(){
     
     m_Control.update()
-    m_Control.redraw()
+    m_Control.render()
 
-    this.animId = window.requestAnimationFrame(this.bindloop,canvas)
+    this.animId = window.requestAnimationFrame(this.bindloop)
 
   }
 
