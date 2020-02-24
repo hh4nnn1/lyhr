@@ -1,6 +1,6 @@
 import player from './player/player.js'
 import background from '../js/base/background.js'
-
+import enemy from './enemy/enemys.js'
 
 export default class mControl
 {
@@ -11,6 +11,8 @@ export default class mControl
 
     this.background = new background()
     this.player = new player(0,5,'black')
+    this.enemys = []
+    
   }
 
   //自适应设备分辨率 
@@ -24,7 +26,12 @@ export default class mControl
   }
 
   update(){
+    
     this.player.update()
+    this.enemys.forEach(enemy=>{
+      enemy.update()
+    })
+    //this.enemy.update()
   }
 
   render(){
@@ -32,5 +39,4 @@ export default class mControl
     this.background.drawToImage(this.ctx)
     this.player.drawToImage(this.ctx)
   }
-
 }

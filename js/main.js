@@ -27,7 +27,6 @@ export default class Main {
     m_Control.render()
 
     this.animId = window.requestAnimationFrame(this.bindloop)
-
   }
 
 }
