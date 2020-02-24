@@ -1,5 +1,3 @@
-
-
 export default class base{
 
   constructor(x = 0, y = 0, r = 0, sAngle = 0, eAngle = 2 * Math.PI,lineWidth=1,strokeStyle="white"){

@@ -1,8 +1,6 @@
 import mControl from './mControl.js'
 
-
 var m_Control = new mControl()
-
 /**
  * 游戏主函数
  */
@@ -17,8 +15,21 @@ export default class Main {
   }
 
   start(){
+
     window.cancelAnimationFrame(this.animId)
+
+    m_Control.Antialias()
+    m_Control.enemysCreate()
+
+    // wx.onTouchStart(function (res) {
+    //   m_Control.enemys.foreach(v=>{
+    //     if( m_Control.player.r <= (v.r + 10) && m_Control.player.r >= (v.r + 10) )
+    //       v.visable = false
+    //     })
+    // })
+
     this.loop()
+
   }
 
   loop(){
