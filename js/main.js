@@ -19,17 +19,26 @@ export default class Main {
     window.cancelAnimationFrame(this.animId)
 
     m_Control.Antialias()
+    m_Control.playerCreate()
     m_Control.enemysCreate()
 
-    // wx.onTouchStart(function (res) {
-    //   m_Control.enemys.foreach(v=>{
-    //     if( m_Control.player.r <= (v.r + 10) && m_Control.player.r >= (v.r + 10) )
-    //       v.visable = false
-    //     })
-    // })
-
+    wx.onTouchStart(function (res) {
+      let success = false
+      m_Control.enemys.forEach(v=>{
+        console.log(m_Control.player.r) 
+        if (m_Control.player.r <= (v.r + v.lineWidth / 2) && m_Control.player.r >= (v.r - v.lineWidth / 2) ){
+          m_Control.enemys.splice(m_Control.enemys.indexOf(v),1)
+          m_Control.score += 1;
+          m_Control.scoreFont.text = m_Control.score
+          success = true
+        }
+      })
+      if(success == false)
+      {
+        this.gameover = true
+      }
+    })
     this.loop()
-
   }
 
   loop(){
